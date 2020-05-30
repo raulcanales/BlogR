@@ -1,4 +1,6 @@
-﻿namespace BlogR.Core.Data.Entities
+﻿using System.Collections.Generic;
+
+namespace BlogR.Core.Data.Entities
 {
     public class Post : BaseEntity
     {
@@ -9,5 +11,6 @@
         public string Slug { get; set; }
         public int ViewCount { get; set; }
         public virtual User Author { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }
