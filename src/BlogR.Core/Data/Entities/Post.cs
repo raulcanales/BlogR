@@ -12,5 +12,6 @@ namespace BlogR.Core.Data.Entities
         public int ViewCount { get; set; }
         public virtual User Author { get; set; }
         public virtual ICollection<Comment> Comments { get; set; }
+        public virtual ICollection<PostCategorization> PostCategorization { get; set; }
     }
 }

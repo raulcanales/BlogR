@@ -1,3 +1,4 @@
+using BlogR.Data.EntityFramework.MySQL.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;
@@ -20,7 +21,7 @@ namespace BlogR.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
+            services.AddBlogR();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

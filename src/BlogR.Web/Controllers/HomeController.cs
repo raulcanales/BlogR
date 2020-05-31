@@ -1,22 +1,34 @@
-﻿using BlogR.Web.Models;
+﻿using BlogR.Core.CQRS.Queries;
+using BlogR.Web.Models;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace BlogR.Web.Controllers
 {
     public class HomeController : Controller
     {
+        private readonly IMediator _mediator;
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IMediator mediator, ILogger<HomeController> logger)
         {
+            _mediator = mediator;
             _logger = logger;
         }
 
-        public IActionResult Index()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            var posts = await _mediator.Send(new GetPosts());
+
+            var model = new IndexViewModel
+            {
+                Posts = posts
+            };
+
+            return View(model);
         }
 
         public IActionResult Privacy()

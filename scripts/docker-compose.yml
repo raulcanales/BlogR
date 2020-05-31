@@ -1,18 +1,45 @@
 version: '3.3'
 services:
   mysql:
+    container_name: mysql
     image: mysql:5.7
     restart: always
     environment:
-      MYSQL_DATABASE: 'blogr'      
-      MYSQL_USER: 'blogr_ddl'      
-      MYSQL_PASSWORD: 'password123456'      
-      MYSQL_ROOT_PASSWORD: 'rootpassword123456'
+      MYSQL_DATABASE: "blogr"
+      MYSQL_USER: "test"
+      MYSQL_PASSWORD: "test123456"
+      MYSQL_ROOT_PASSWORD: "test123456"
     ports:      
-      - '3306:3306'
+      - "3306:3306"
     expose:      
-      - '3306'      
+      - "3306"      
     volumes:
       - mysql-db:/var/lib/mysql
+  mssql:
+    container_name: mssql
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    environment:
+      - SA_PASSWORD=Pass@word
+      - ACCEPT_EULA=Y
+    ports:
+      - "5434:1433"
+    expose:      
+      - "5434"
+  postgres:
+    container_name: postgres
+    image: "postgres"
+    restart: always
+    environment:
+      POSTGRES_DB: "blogr"
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test123456"
+    ports:      
+      - "5432:5432"
+    expose:
+      - "5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data/
 volumes:
   mysql-db:
+  postgres-data:
+  

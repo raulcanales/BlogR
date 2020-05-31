@@ -3,7 +3,7 @@ using MediatR;
 
 namespace BlogR.Core.CQRS.Queries
 {
-    public class GetPost : IRequest<User>
+    public class GetPost : IRequest<Post>
     {
         public string Slug { get; set; }
     }

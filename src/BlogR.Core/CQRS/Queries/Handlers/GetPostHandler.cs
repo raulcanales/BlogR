@@ -6,16 +6,19 @@ using System.Threading.Tasks;
 
 namespace BlogR.Core.CQRS.Queries.Handlers
 {
-    public class GetPostHandler : IRequestHandler<GetPost, User>
+    public class GetPostHandler : IRequestHandler<GetPost, Post>
     {
+        private readonly IPostRepository _postRepository;
+
         public GetPostHandler(IPostRepository postRepository)
         {
-
+            _postRepository = postRepository;
         }
 
-        public Task<User> Handle(GetPost request, CancellationToken cancellationToken)
+        public async Task<Post> Handle(GetPost request, CancellationToken cancellationToken)
         {
-            throw new System.NotImplementedException();
+            var post = await _postRepository.SingleOrDefaultAsync(p => p.Slug == request.Slug);
+            return post;
         }
     }
 }

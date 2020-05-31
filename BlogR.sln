@@ -11,19 +11,27 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Core", "src\BlogR.Cor
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Web", "src\BlogR.Web\BlogR.Web.csproj", "{B400E9EF-BCF1-4563-A4EF-FF54DFA2BE68}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EF", "src\BlogR.Data.EF\BlogR.Data.EF.csproj", "{DB3408DD-EB86-40E6-BFDC-C29D295D594B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EntityFramework", "src\BlogR.Data.EntityFramework\BlogR.Data.EntityFramework.csproj", "{DB3408DD-EB86-40E6-BFDC-C29D295D594B}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Core.Tests", "tests\BlogR.Core.Tests\BlogR.Core.Tests.csproj", "{66C64D14-1CEC-4CDB-8DFD-B836ABD02484}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EF.MySQL", "src\BlogR.Data.EF.MySQL\BlogR.Data.EF.MySQL.csproj", "{CCFF60F0-63A6-4FEC-B2D3-BAEF9A4CC2E7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EntityFramework.MySQL", "src\BlogR.Data.EntityFramework.MySQL\BlogR.Data.EntityFramework.MySQL.csproj", "{CCFF60F0-63A6-4FEC-B2D3-BAEF9A4CC2E7}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EF.SQLite", "src\BlogR.Data.EF.SQLite\BlogR.Data.EF.SQLite.csproj", "{DDF6B108-45A9-4F6D-BEA9-D49CAED0E439}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EntityFramework.SQLite", "src\BlogR.Data.EntityFramework.SQLite\BlogR.Data.EntityFramework.SQLite.csproj", "{DDF6B108-45A9-4F6D-BEA9-D49CAED0E439}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EF.MSSQL", "src\BlogR.Data.EF.MSSQL\BlogR.Data.EF.MSSQL.csproj", "{42770C86-6EDD-4949-99B8-2045C1EF91CB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EntityFramework.MSSQL", "src\BlogR.Data.EntityFramework.MSSQL\BlogR.Data.EntityFramework.MSSQL.csproj", "{42770C86-6EDD-4949-99B8-2045C1EF91CB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EF.PostgreSQL", "src\BlogR.Data.EF.PostgreSQL\BlogR.Data.EF.PostgreSQL.csproj", "{B1AD739B-D586-470B-90DA-EB50869D8A4D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EntityFramework.PostgreSQL", "src\BlogR.Data.EntityFramework.PostgreSQL\BlogR.Data.EntityFramework.PostgreSQL.csproj", "{B1AD739B-D586-470B-90DA-EB50869D8A4D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BlogR.Data.EntityFramework.MySQL.DependencyInjection", "src\BlogR.Data.EntityFramework.MySQL.DependencyInjection\BlogR.Data.EntityFramework.MySQL.DependencyInjection.csproj", "{C8148240-66E6-4362-A1FF-437EC85D95F8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogR.Data.EntityFramework.MSSQL.DependencyInjection", "src\BlogR.Data.EntityFramework.MSSQL.DependencyInjection\BlogR.Data.EntityFramework.MSSQL.DependencyInjection.csproj", "{0588F989-F5D9-47DE-98B6-047FC4DE2355}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogR.Data.EntityFramework.PostgreSQL.DependencyInjection", "src\BlogR.Data.EntityFramework.PostgreSQL.DependencyInjection\BlogR.Data.EntityFramework.PostgreSQL.DependencyInjection.csproj", "{6398EECC-9FC5-4A87-AC74-92ABE2C145FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlogR.Data.EntityFramework.SQLite.DependencyInjection", "src\BlogR.Data.EntityFramework.SQLite.DependencyInjection\BlogR.Data.EntityFramework.SQLite.DependencyInjection.csproj", "{EBA3DAB6-3D3B-43B2-B763-61CD9306B4D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +71,22 @@ Global
 		{B1AD739B-D586-470B-90DA-EB50869D8A4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B1AD739B-D586-470B-90DA-EB50869D8A4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B1AD739B-D586-470B-90DA-EB50869D8A4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C8148240-66E6-4362-A1FF-437EC85D95F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8148240-66E6-4362-A1FF-437EC85D95F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8148240-66E6-4362-A1FF-437EC85D95F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8148240-66E6-4362-A1FF-437EC85D95F8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0588F989-F5D9-47DE-98B6-047FC4DE2355}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0588F989-F5D9-47DE-98B6-047FC4DE2355}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0588F989-F5D9-47DE-98B6-047FC4DE2355}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0588F989-F5D9-47DE-98B6-047FC4DE2355}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6398EECC-9FC5-4A87-AC74-92ABE2C145FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6398EECC-9FC5-4A87-AC74-92ABE2C145FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6398EECC-9FC5-4A87-AC74-92ABE2C145FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6398EECC-9FC5-4A87-AC74-92ABE2C145FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBA3DAB6-3D3B-43B2-B763-61CD9306B4D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBA3DAB6-3D3B-43B2-B763-61CD9306B4D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBA3DAB6-3D3B-43B2-B763-61CD9306B4D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBA3DAB6-3D3B-43B2-B763-61CD9306B4D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -77,6 +101,10 @@ Global
 		{42770C86-6EDD-4949-99B8-2045C1EF91CB} = {AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}
 		{B1AD739B-D586-470B-90DA-EB50869D8A4D} = {AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}
 		{AE3BE426-0AB4-4611-96CE-B7842BF3CEE9} = {0B14BD1E-412A-4E08-B40D-ED7E5D43B11C}
+		{C8148240-66E6-4362-A1FF-437EC85D95F8} = {AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}
+		{0588F989-F5D9-47DE-98B6-047FC4DE2355} = {AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}
+		{6398EECC-9FC5-4A87-AC74-92ABE2C145FA} = {AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}
+		{EBA3DAB6-3D3B-43B2-B763-61CD9306B4D7} = {AE3BE426-0AB4-4611-96CE-B7842BF3CEE9}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {CE2C0EBC-2325-49B8-9F21-DA1225A84529}

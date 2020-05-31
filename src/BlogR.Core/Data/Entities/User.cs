@@ -9,5 +9,6 @@ namespace BlogR.Core.Data.Entities
         public string Salt { get; set; }
         public string Nickname { get; set; }
         public virtual ICollection<Post> Posts { get; set; }
+        public virtual ICollection<Comment> Comments { get; set; }
     }
 }

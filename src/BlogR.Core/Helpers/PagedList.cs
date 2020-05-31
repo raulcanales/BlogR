@@ -1,5 +1,6 @@
 ﻿using BlogR.Core.Data.Entities;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 
 namespace BlogR.Core.Helpers
@@ -11,11 +12,11 @@ namespace BlogR.Core.Helpers
         public int ElementsPerPage { get; set; }
         public int RowCount { get; set; }
 
-        public int FirstRowOnPage => (CurrentPage - 1) * ElementsPerPage + 1; 
-        public int LastRowOnPage=> Math.Min(CurrentPage * ElementsPerPage, RowCount); 
+        public int FirstRowOnPage => (CurrentPage - 1) * ElementsPerPage + 1;
+        public int LastRowOnPage => Math.Min(CurrentPage * ElementsPerPage, RowCount);
     }
 
-    public class PagedResult<T> : PagedResultBase where T : BaseEntity
+    public class PagedResult<T> : PagedResultBase, IEnumerable<T> where T : BaseEntity
     {
         public IList<T> Results { get; set; }
 
@@ -23,5 +24,9 @@ namespace BlogR.Core.Helpers
         {
             Results = new List<T>();
         }
+
+        public IEnumerator<T> GetEnumerator() => Results.GetEnumerator();
+
+        IEnumerator IEnumerable.GetEnumerator() => GetEnumerator();
     }
 }
