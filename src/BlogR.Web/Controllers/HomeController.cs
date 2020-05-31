@@ -21,8 +21,7 @@ namespace BlogR.Web.Controllers
 
         public async Task<IActionResult> Index()
         {
-            var posts = await _mediator.Send(new GetPosts());
-
+            var posts = await _mediator.Send(new GetPosts { ElementsPerPage = 6 });
             var model = new IndexViewModel
             {
                 Posts = posts
