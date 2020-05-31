@@ -13,7 +13,7 @@ namespace BlogR.Data.EntityFramework.Types
             builder.Property(x => x.Salt).IsRequired().HasMaxLength(80);
             builder.Property(x => x.Password).IsRequired().HasMaxLength(160);
             builder.Property(x => x.Nickname).IsRequired().HasMaxLength(40);
-            builder.HasMany(x => x.Comments).WithOne(x => x.Author).OnDelete(DeleteBehavior.Cascade);
+            builder.HasMany(x => x.Comments).WithOne(x => x.Author).OnDelete(DeleteBehavior.NoAction);
             builder.HasIndex(x => x.Email).IsUnique();
         }
     }

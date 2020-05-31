@@ -13,7 +13,8 @@ namespace BlogR.Data.EntityFramework.Types
             builder.Property(x => x.Content).IsRequired();
             builder.Property(x => x.CreationTimeUtc).IsRequired();
             builder.Property(x => x.LastModifiedUtc);
-            builder.HasOne(x => x.Author);
+            builder.HasOne(x => x.ParentComment);
+            builder.HasOne(x => x.Author).WithMany(x => x.Comments).OnDelete(DeleteBehavior.NoAction);
             builder.HasOne(x => x.Post).WithMany(x => x.Comments);
         }
     }

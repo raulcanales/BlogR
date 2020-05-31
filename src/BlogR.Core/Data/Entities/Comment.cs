@@ -2,7 +2,7 @@
 {
     public class Comment : BaseEntity
     {
-        public int UserId { get; set; }
+        public int? UserId { get; set; }
         public int PostId { get; set; }
         public int? ParentCommentId { get; set; }
         public string Title { get; set; }

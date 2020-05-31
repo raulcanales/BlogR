@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace BlogR.Data.EF.MySQL.Migrations
+namespace BlogR.Data.EntityFramework.MySQL.Migrations
 {
     [DbContext(typeof(MySQLDbContext))]
     partial class MySQLDbContextModelSnapshot : ModelSnapshot
@@ -66,7 +66,7 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .HasColumnType("varchar(160)")
                         .HasMaxLength(160);
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -118,6 +118,9 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -192,10 +195,9 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .IsRequired();
 
                     b.HasOne("BlogR.Core.Data.Entities.User", "Author")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("BlogR.Core.Data.Entities.Post", b =>

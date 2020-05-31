@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Migrations;
 using MySql.Data.EntityFrameworkCore.Metadata;
 
-namespace BlogR.Data.EF.MySQL.Migrations
+namespace BlogR.Data.EntityFramework.MySQL.Migrations
 {
     public partial class InitialSchema : Migration
     {
@@ -75,7 +75,7 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .Annotation("MySQL:ValueGenerationStrategy", MySQLValueGenerationStrategy.IdentityColumn),
                     CreationTimeUtc = table.Column<DateTime>(nullable: false),
                     LastModifiedUtc = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true),
                     PostId = table.Column<int>(nullable: false),
                     ParentCommentId = table.Column<int>(nullable: true),
                     Title = table.Column<string>(maxLength: 160, nullable: false),
@@ -100,8 +100,7 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         name: "FK_Comments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
@@ -147,6 +146,12 @@ namespace BlogR.Data.EF.MySQL.Migrations
                 name: "IX_PostCategorization_CategoryId",
                 table: "PostCategorization",
                 column: "CategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Posts_Slug",
+                table: "Posts",
+                column: "Slug",
+                unique: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Posts_UserId",

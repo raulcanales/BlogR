@@ -1,4 +1,4 @@
-using BlogR.Data.EntityFramework.MySQL.DependencyInjection;
+using BlogR.Data.EntityFramework.MSSQL.DependencyInjection;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

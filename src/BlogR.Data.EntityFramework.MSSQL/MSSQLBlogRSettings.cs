@@ -9,7 +9,7 @@ namespace BlogR.Data.EntityFramework.MSSQL
         public string User { get; set; }
         public string Password { get; set; }
         public string Database { get; set; }
-        public string GetConnectionString() => $"Server={Host};Port={Port};Uid={User};Pwd={Password};Database={Database};";
+        public string GetConnectionString() => $"Server={Host},{Port};User id={User};Pwd={Password};Database={Database};";
 
         public void ValidateSettings()
         {

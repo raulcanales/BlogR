@@ -70,7 +70,7 @@ namespace BlogR.Data.EntityFramework.MSSQL.Migrations
                         .HasColumnType("nvarchar(160)")
                         .HasMaxLength(160);
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -203,8 +203,7 @@ namespace BlogR.Data.EntityFramework.MSSQL.Migrations
                     b.HasOne("BlogR.Core.Data.Entities.User", "Author")
                         .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("BlogR.Core.Data.Entities.Post", b =>

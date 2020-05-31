@@ -1,3 +1,3 @@
-cd ../src/BlogR.Data.EF.MySQL
+cd ../src/BlogR.Data.EntityFramework.MySQL
 dotnet ef migrations add InitialSchema
 dotnet ef database update

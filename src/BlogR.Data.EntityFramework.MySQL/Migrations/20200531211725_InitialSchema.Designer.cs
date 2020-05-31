@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace BlogR.Data.EF.MySQL.Migrations
+namespace BlogR.Data.EntityFramework.MySQL.Migrations
 {
     [DbContext(typeof(MySQLDbContext))]
-    [Migration("20200531151559_InitialSchema")]
+    [Migration("20200531211725_InitialSchema")]
     partial class InitialSchema
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -68,7 +68,7 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .HasColumnType("varchar(160)")
                         .HasMaxLength(160);
 
-                    b.Property<int>("UserId")
+                    b.Property<int?>("UserId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -120,6 +120,9 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Slug")
+                        .IsUnique();
 
                     b.HasIndex("UserId");
 
@@ -194,10 +197,9 @@ namespace BlogR.Data.EF.MySQL.Migrations
                         .IsRequired();
 
                     b.HasOne("BlogR.Core.Data.Entities.User", "Author")
-                        .WithMany()
+                        .WithMany("Comments")
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .OnDelete(DeleteBehavior.NoAction);
                 });
 
             modelBuilder.Entity("BlogR.Core.Data.Entities.Post", b =>

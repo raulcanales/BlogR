@@ -74,7 +74,7 @@ namespace BlogR.Data.EntityFramework.MSSQL.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     CreationTimeUtc = table.Column<DateTime>(nullable: false),
                     LastModifiedUtc = table.Column<DateTime>(nullable: true),
-                    UserId = table.Column<int>(nullable: false),
+                    UserId = table.Column<int>(nullable: true),
                     PostId = table.Column<int>(nullable: false),
                     ParentCommentId = table.Column<int>(nullable: true),
                     Title = table.Column<string>(maxLength: 160, nullable: false),
@@ -99,8 +99,7 @@ namespace BlogR.Data.EntityFramework.MSSQL.Migrations
                         name: "FK_Comments_Users_UserId",
                         column: x => x.UserId,
                         principalTable: "Users",
-                        principalColumn: "Id",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "Id");
                 });
 
             migrationBuilder.CreateTable(
