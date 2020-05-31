@@ -1,6 +1,5 @@
 ﻿using BlogR.Core.Data.Entities;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Design;
 using MySql.Data.EntityFrameworkCore.Infrastructure.Internal;
 using System;
 using System.Linq;
@@ -16,9 +15,6 @@ namespace BlogR.Data.EF.MySQL
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            builder.Entity<User>().ToTable("Users");
-            builder.Entity<Post>().ToTable("Posts");
-
             base.OnModelCreating(builder);
         }
 
@@ -31,16 +27,6 @@ namespace BlogR.Data.EF.MySQL
             return new DbContextOptionsBuilder<T>()
                         .UseMySQL(((MySQLOptionsExtension)sqlExt).ConnectionString)
                         .Options;
-        }
-    }
-
-    public class BloggingContextFactory : IDesignTimeDbContextFactory<MySQLDbContext>
-    {
-        public MySQLDbContext CreateDbContext(string[] args)
-        {
-            var optionsBuilder = new DbContextOptionsBuilder<MySQLDbContext>();
-            //optionsBuilder.UseMySQL(CONNECTIONSTRING GOES HERE);
-            return new MySQLDbContext(optionsBuilder.Options);
         }
     }
 }
