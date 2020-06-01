@@ -1,0 +1,19 @@
+﻿@using System.Security.Claims;
+@model BlogR.Core.Data.Entities.Post
+<!-- Blog Post -->
+<div class="card mb-4">
+    @if(User.Identity.IsAuthenticated && User.Claims.SingleOrDefault(c => c.Type == ClaimTypes.Email).Value == Model.Author.Email)
+    {
+        <p>EDIT</p>
+    }
+    <img class="card-img-top" src="http://placehold.it/750x300" alt="Card image cap">
+    <div class="card-body">
+        <h2 class="card-title">@Model.Title</h2>
+        <p class="card-text">@Model.Summary</p>
+        <a href="@Url.RouteUrl("Post", new { Slug = Model.Slug })" class="btn btn-primary">Read More &rarr;</a>
+    </div>
+    <div class="card-footer text-muted">
+        Posted on @Model.CreationTimeUtc
+        <a href="#">@Model.Author.Nickname</a>
+    </div>
+</div>

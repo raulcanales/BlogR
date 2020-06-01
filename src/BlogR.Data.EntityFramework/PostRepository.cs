@@ -17,12 +17,10 @@ namespace BlogR.Data.EntityFramework
 
         public new PagedResult<Post> GetList(Expression<Func<Post, bool>> predicate, int page = 1, int elementsPerPage = 10)
         {
-            var criteria = Entities.Include(p => p.Author);
-
             if (predicate != null)
-                criteria = (Microsoft.EntityFrameworkCore.Query.IIncludableQueryable<Post, User>)criteria.Where(predicate);
+                return Entities.Where(predicate).Include(p => p.Author).GetPaged(page, elementsPerPage);
 
-            return criteria.GetPaged(page, elementsPerPage);
+            return Entities.Include(p => p.Author).GetPaged(page, elementsPerPage);
         }
     }
 }

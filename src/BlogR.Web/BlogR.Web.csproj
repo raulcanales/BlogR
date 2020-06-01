@@ -12,11 +12,11 @@
   <ItemGroup>
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Models\" />
-    <Folder Include="Views\User\" />
+    <Folder Include="wwwroot\img\" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BlogR.Data.EntityFramework.MSSQL.DependencyInjection\BlogR.Data.EntityFramework.MSSQL.DependencyInjection.csproj" />
+    <ProjectReference Include="..\BlogR.Data.EntityFramework.MySQL.DependencyInjection\BlogR.Data.EntityFramework.MySQL.DependencyInjection.csproj" />
   </ItemGroup>
 
 </Project>

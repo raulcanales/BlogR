@@ -1,16 +1,15 @@
-﻿@model IndexViewModel
+﻿@model BlogR.Core.Helpers.PagedResult<BlogR.Core.Data.Entities.Post>
 
 @{
-    ViewData["Title"] = "Home Page";
+    ViewData["Title"] = "Search";
 }
 
-
 <h1 class="my-4">
-    Page Heading
+    Search
     <small>Secondary Text</small>
 </h1>
 
-@foreach (var post in Model.Posts)
+@foreach (var post in Model)
 {
     await Html.RenderPartialAsync("_PostPreview", post);
 }
