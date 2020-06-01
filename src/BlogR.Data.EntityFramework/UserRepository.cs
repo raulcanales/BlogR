@@ -6,9 +6,6 @@ namespace BlogR.Data.EntityFramework
 {
     public class UserRepository : BaseRepository<User>, IUserRepository
     {
-        public UserRepository(DbContext context)
-            : base(context)
-        {
-        }
+        public UserRepository(DbContext context) : base(context) { }
     }
 }
